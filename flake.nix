@@ -27,7 +27,7 @@
       in {
         defaultPackage = pkgs.hello;
 
-        packages = import ./pkgs {inherit pkgs;};
+        packages = import ./pkgs/top-level {inherit pkgs;};
       }
     );
 }

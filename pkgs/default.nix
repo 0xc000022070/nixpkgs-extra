@@ -1,5 +1,0 @@
-{...}: {
-  imports = [
-    ./top-level.nix
-  ];
-}
