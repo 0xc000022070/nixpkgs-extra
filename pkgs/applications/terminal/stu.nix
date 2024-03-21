@@ -7,11 +7,12 @@ rustPlatform.buildRustPackage rec {
   version = "unstable";
 
   src = fetchFromGitHub {
+    name = "${pname}-${version}-source";
     owner = "lusingander";
-    repo = "stu";
-    rev = "b45af223371e54a81ea1b04f31c6545c5ca80f7d";
-    hash = "sha256-32EwxLzZ9LVtNGAl5FyA2b5lEa10ebGzPNOJ/vK0Kr0=";
+    repo = pname;
+    rev = "894c6099fca9c3b78fc198e5dba6b220de25aa57";
+    hash = "sha256-uXfzeUPQk7qCopfoFmGdJ4z8WlmvPxVi7FO8MC3FgL4=";
   };
 
-  cargoSha256 = "sha256-SSdiy8iElwBJPrOHcFMfkVK7mqYPyKYkyRKLAVOSNr8=";
+  cargoSha256 = "sha256-TZSdjmgNwLh0v8IJpxO3OPjgYVs4UbLX+3753mkPwTo=";
 }

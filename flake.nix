@@ -21,8 +21,8 @@
 
           inherit system;
         };
-      in {
-        defaultPackage = pkgs.hello;
+      in rec {
+        defaultPackage = packages.stu;
 
         packages = import ./pkgs/top-level {inherit pkgs;};
       }
