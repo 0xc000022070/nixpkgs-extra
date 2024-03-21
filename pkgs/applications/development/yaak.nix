@@ -1,10 +1,10 @@
 {appimageTools, ...}:
 appimageTools.wrapType2 rec {
   name = "yaak";
-  version = "2024.2.0";
+  version = "2024.3.8";
 
   src = builtins.fetchTarball {
     url = "https://releases.yaak.app/${version}/yaak_${version}_amd64.AppImage.tar.gz";
-    sha256 = "0c7pq9xg2kfikx1fh4kxzkr3j4wrnzdyz65qb6xpmi4c5psklwl4";
+    sha256 = "0rg0zbmc51y7qyl765mqxa5aqdzwy85i22604mryd5kwsa13cnd4";
   };
 }
