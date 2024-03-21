@@ -5,6 +5,6 @@ appimageTools.wrapType2 rec {
 
   src = builtins.fetchTarball {
     url = "https://releases.yaak.app/${version}/yaak_${version}_amd64.AppImage.tar.gz";
-    sha256 = "0rg0zbmc51y7qyl765mqxa5aqdzwy85i22604mryd5kwsa13cnd4";
+    sha256 = "0p09h8zw1d9bl8nzmsv7v868a13w6y2pi8wkf6rz2qlys03qcw04";
   };
 }
