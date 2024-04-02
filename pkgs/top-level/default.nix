@@ -7,6 +7,7 @@ with pkgs.lib; let
     ght = ../applications/terminal/ght.nix;
     lazysql = ../applications/terminal/lazysql.nix;
     netscanner = ../applications/terminal/netscanner.nix;
+    mysqlweb = ../applications/terminal/mysqlweb.nix;
     no = ../applications/terminal/no.nix;
     npkill = ../applications/terminal/npkill.nix;
     openapi-tui = ../applications/terminal/openapi-tui.nix;
