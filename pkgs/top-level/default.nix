@@ -14,6 +14,7 @@ with pkgs.lib; let
     stu = ../applications/terminal/stu.nix;
     vimix-cursor-theme = ../applications/desktop/vimix-cursor-theme.nix;
     yaak = ../applications/development/yaak.nix;
+    logkeys = ../applications/terminal/logkeys.nix;
     # pg-ping = ./pg-ping.nix;
     # dbeaver = ./dbeaver.nix;
     # netflix = ./netflix.nix;

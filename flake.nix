@@ -22,7 +22,7 @@
           inherit system;
         };
       in rec {
-        defaultPackage = packages.stu;
+        defaultPackage = packages.logkeys;
 
         packages = import ./pkgs/top-level {inherit pkgs;};
       }
