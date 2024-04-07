@@ -11,13 +11,14 @@
 }:
 rustPlatform.buildRustPackage rec {
   pname = "spotify-tui";
-  version = "0.25.0";
+  version = "unstable";
 
   src = fetchFromGitHub {
+    name = "${pname}-${version}-source";
     owner = "Rigellute";
     repo = "spotify-tui";
-    rev = "v${version}";
-    hash = "sha256-L5gg6tjQuYoAC89XfKE38KCFONwSAwfNoFEUPH4jNAI=";
+    rev = "c4dcf6b9fd8318017acbdd7ec005955e26cf2794";
+    hash = "sha256-Zm3dTMWu61Z7v8z8DZGmzjBWSFy+y3J90+nu9zYLFUg=";
   };
 
   cargoLock = {
