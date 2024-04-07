@@ -22,7 +22,7 @@
           inherit system;
         };
       in rec {
-        defaultPackage = packages.logkeys;
+        defaultPackage = packages.passgen;
 
         packages = import ./pkgs/top-level {inherit pkgs;};
       }
