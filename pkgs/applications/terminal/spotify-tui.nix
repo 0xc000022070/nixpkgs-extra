@@ -3,10 +3,8 @@
   fetchFromGitHub,
   rustPlatform,
   pkg-config,
-  Security,
   openssl,
   python3,
-  AppKit,
   stdenv,
   libxcb,
   lib,
@@ -29,8 +27,7 @@ rustPlatform.buildRustPackage rec {
   nativeBuildInputs = [installShellFiles] ++ lib.optionals stdenv.isLinux [pkg-config python3];
   buildInputs =
     []
-    ++ lib.optionals stdenv.isLinux [openssl libxcb]
-    ++ lib.optionals stdenv.isDarwin [AppKit Security];
+    ++ lib.optionals stdenv.isLinux [openssl libxcb];
 
   postPatch = ''
     # update Cargo.lock to fix build
