@@ -12,6 +12,7 @@ with pkgs.lib; let
     npkill = ../applications/terminal/npkill.nix;
     openapi-tui = ../applications/terminal/openapi-tui.nix;
     stu = ../applications/terminal/stu.nix;
+    spotify-tui = ../applications/terminal/spotify-tui.nix;
     vimix-cursor-theme = ../applications/desktop/vimix-cursor-theme.nix;
     yaak = ../applications/development/yaak.nix;
     logkeys = ../applications/terminal/logkeys.nix;
