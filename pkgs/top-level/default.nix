@@ -3,6 +3,7 @@ with pkgs.lib; let
   packages = {
     coders-crux = ../applications/fonts/coders-crux.nix;
     ecsview = ../applications/terminal/ecsview.nix;
+    daktilo = ../applications/terminal/daktilo.nix;
     emoji-fzf = ../applications/terminal/emoji-fzf.nix;
     ght = ../applications/terminal/ght.nix;
     lazysql = ../applications/terminal/lazysql.nix;

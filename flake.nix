@@ -22,7 +22,7 @@
           inherit system;
         };
       in rec {
-        defaultPackage = packages.passgen;
+        defaultPackage = packages.daktilo;
 
         packages = import ./pkgs/top-level {inherit pkgs;};
       }
