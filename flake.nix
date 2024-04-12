@@ -22,7 +22,7 @@
           inherit system;
         };
       in rec {
-        defaultPackage = packages.havn;
+        defaultPackage = packages.kmon;
 
         packages = import ./pkgs/top-level {inherit pkgs;};
       }
