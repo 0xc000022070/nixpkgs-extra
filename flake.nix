@@ -22,7 +22,7 @@
           inherit system;
         };
       in rec {
-        defaultPackage = packages.kmon;
+        defaultPackage = packages.go-blueprint;
 
         packages = import ./pkgs/top-level {inherit pkgs;};
       }

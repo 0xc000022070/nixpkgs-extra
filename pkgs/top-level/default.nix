@@ -6,6 +6,7 @@ with pkgs.lib; let
     daktilo = ../applications/terminal/daktilo.nix;
     emoji-fzf = ../applications/terminal/emoji-fzf.nix;
     ght = ../applications/terminal/ght.nix;
+    go-blueprint = ../applications/terminal/go-blueprint.nix;
     havn = ../applications/terminal/havn.nix;
     kmon = ../applications/terminal/kmon.nix;
     lazysql = ../applications/terminal/lazysql.nix;
