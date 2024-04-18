@@ -22,7 +22,7 @@
           inherit system;
         };
       in rec {
-        defaultPackage = packages.go-blueprint;
+        defaultPackage = packages.atac;
 
         packages = import ./pkgs/top-level {inherit pkgs;};
       }

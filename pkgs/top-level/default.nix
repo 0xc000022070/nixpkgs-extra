@@ -1,6 +1,7 @@
 {pkgs, ...}:
 with pkgs.lib; let
   packages = {
+    atac = ../applications/terminal/atac.nix;
     coders-crux = ../applications/fonts/coders-crux.nix;
     ecsview = ../applications/terminal/ecsview.nix;
     daktilo = ../applications/terminal/daktilo.nix;
@@ -20,10 +21,6 @@ with pkgs.lib; let
     yaak = ../applications/development/yaak.nix;
     passgen = ../applications/terminal/passgen.nix;
     logkeys = ../applications/terminal/logkeys.nix;
-    # pg-ping = ./pg-ping.nix;
-    # dbeaver = ./dbeaver.nix;
-    # netflix = ./netflix.nix;
-    # tpm = ./tpm.nix;
   };
 in
   attrsets.mapAttrs (_name: p: pkgs.callPackage p {}) packages
