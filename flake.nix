@@ -22,7 +22,7 @@
           inherit system;
         };
       in rec {
-        defaultPackage = packages.stu;
+        defaultPackage = packages.systemctl-tui;
 
         packages = import ./pkgs/top-level {inherit pkgs;};
       }

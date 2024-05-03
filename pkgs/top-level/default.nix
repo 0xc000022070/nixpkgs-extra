@@ -21,6 +21,7 @@ with pkgs.lib; let
     yaak = ../applications/development/yaak.nix;
     passgen = ../applications/terminal/passgen.nix;
     logkeys = ../applications/terminal/logkeys.nix;
+    systemctl-tui = ../applications/terminal/systemctl-tui.nix;
   };
 in
   attrsets.mapAttrs (_name: p: pkgs.callPackage p {}) packages
