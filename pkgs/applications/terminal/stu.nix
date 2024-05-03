@@ -10,9 +10,9 @@ rustPlatform.buildRustPackage rec {
     name = "${pname}-${version}-source";
     owner = "lusingander";
     repo = pname;
-    rev = "281937e7d85c9e5b104c6bd66a9532007864c90b";
-    hash = "sha256-9FDILkGl7glFnZCoqW0X933krTo752Ky5Zpm1+RGyAM=";
+    rev = "da06abfacd0257e2d2ef985ed3243a09af4277a6";
+    hash = "sha256-gVYtho2rXc0ODP7S5yrK1XAYbbm6ZGArLIO0Y1eG91A=";
   };
 
-  cargoSha256 = "sha256-Ep7n+PWpPiXZL+bCZMNk93KgU6TM32Pb8zcP6Qb62Mc=";
+  cargoSha256 = "sha256-J8TjPF/iHfc8q+Pui5t36X9S/f4LQwsXpg+RPW+P02I=";
 }
