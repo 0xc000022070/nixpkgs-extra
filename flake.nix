@@ -22,7 +22,7 @@
           inherit system;
         };
       in rec {
-        defaultPackage = packages.systemctl-tui;
+        defaultPackage = packages.goweight;
 
         packages = import ./pkgs/top-level {inherit pkgs;};
       }

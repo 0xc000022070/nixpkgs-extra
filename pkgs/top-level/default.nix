@@ -8,6 +8,7 @@ with pkgs.lib; let
     emoji-fzf = ../applications/terminal/emoji-fzf.nix;
     ght = ../applications/terminal/ght.nix;
     go-blueprint = ../applications/terminal/go-blueprint.nix;
+    goweight = ../applications/terminal/goweight.nix;
     havn = ../applications/terminal/havn.nix;
     kmon = ../applications/terminal/kmon.nix;
     lazysql = ../applications/terminal/lazysql.nix;
