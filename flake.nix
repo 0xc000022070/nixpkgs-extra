@@ -22,7 +22,7 @@
           inherit system;
         };
       in rec {
-        defaultPackage = packages.goweight;
+        defaultPackage = packages.s3-edit;
 
         packages = import ./pkgs/top-level {inherit pkgs;};
       }

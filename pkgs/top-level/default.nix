@@ -17,6 +17,7 @@ with pkgs.lib; let
     no = ../applications/terminal/no.nix;
     npkill = ../applications/terminal/npkill.nix;
     openapi-tui = ../applications/terminal/openapi-tui.nix;
+    s3-edit = ../applications/terminal/s3-edit.nix;
     stu = ../applications/terminal/stu.nix;
     vimix-cursor-theme = ../applications/desktop/vimix-cursor-theme.nix;
     yaak = ../applications/development/yaak.nix;
