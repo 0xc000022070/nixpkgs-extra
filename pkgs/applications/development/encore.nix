@@ -17,7 +17,11 @@ buildGoModule rec {
 
   CGO_ENABLED = 0;
 
-  subPackages = ["./cli/cmd/encore"];
+  subPackages = [
+    "./cli/cmd/encore"
+    "./cli/cmd/git-remote-encore"
+    "./cli/cmd/tsbundler-encore"
+  ];
 
   vendorHash = "sha256-LUBT/pXgkodxmDLvGDmd0mVNlHEryZZK36MzDkrROao=";
   doCheck = true;
