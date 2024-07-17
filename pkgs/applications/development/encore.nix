@@ -15,14 +15,10 @@ buildGoModule rec {
     hash = "sha256-71vzo52vV4VilBnLZxIWDKIY08rfTavMZ57qgi4pip8=";
   };
 
-  CGO_ENABLED = 0;
+  CGO_ENABLED = 1;
 
-  subPackages = [
-    "./cli/cmd/encore"
-    "./cli/cmd/git-remote-encore"
-    "./cli/cmd/tsbundler-encore"
-  ];
-
-  vendorHash = "sha256-LUBT/pXgkodxmDLvGDmd0mVNlHEryZZK36MzDkrROao=";
   doCheck = true;
+
+  vendorHash = "sha256-lM03+eBrny7uNKAq4xuQ3HSmX+aglaSEaRCetGgdyjQ=";
+  proxyVendor = true;
 }
