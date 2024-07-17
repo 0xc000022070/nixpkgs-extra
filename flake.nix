@@ -22,7 +22,7 @@
           inherit system;
         };
       in rec {
-        defaultPackage = packages.s3-edit;
+        defaultPackage = packages.encore;
 
         packages = import ./pkgs/top-level {inherit pkgs;};
       }

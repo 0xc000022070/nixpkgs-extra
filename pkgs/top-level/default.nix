@@ -6,6 +6,7 @@ with pkgs.lib; let
     ecsview = ../applications/terminal/ecsview.nix;
     daktilo = ../applications/terminal/daktilo.nix;
     emoji-fzf = ../applications/terminal/emoji-fzf.nix;
+    encore = ../applications/development/encore.nix;
     ght = ../applications/terminal/ght.nix;
     go-blueprint = ../applications/terminal/go-blueprint.nix;
     goweight = ../applications/terminal/goweight.nix;
