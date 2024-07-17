@@ -19,6 +19,12 @@ buildGoModule rec {
 
   doCheck = true;
 
+  subPackages = [
+    "./cli/cmd/encore"
+    "./cli/cmd/git-remote-encore"
+    "./cli/cmd/tsbundler-encore"
+  ];
+
   vendorHash = "sha256-lM03+eBrny7uNKAq4xuQ3HSmX+aglaSEaRCetGgdyjQ=";
   proxyVendor = true;
 }
