@@ -2,6 +2,7 @@
   fetchFromGitHub,
   buildGoModule,
   makeWrapper,
+  callPackage,
   ...
 }:
 buildGoModule rec {
@@ -28,12 +29,18 @@ buildGoModule rec {
 
   CGO_ENABLED = 1;
 
-  postInstall = ''
+  postInstall = let
+    goEncore = callPackage ./go-encore.nix {};
+  in ''
     mkdir -p $out/share/runtimes
     cp -r $src/runtimes/* $out/share/runtimes
 
-    wrapProgram $out/bin/${pname} \
-      --prefix ENCORE_RUNTIMES_PATH : $out/share/runtimes
+    ln -s ${goEncore}/bin/* $out/bin
+
+    wrapProgram $out/bin/encore \
+      --set ENCORE_RUNTIMES_PATH $out/share/runtimes \
+      --set ENCORE_GOROOT ${goEncore}/share/go \
+      --set GOROOT ${goEncore}/share/go
   '';
 
   vendorHash = "sha256-lM03+eBrny7uNKAq4xuQ3HSmX+aglaSEaRCetGgdyjQ=";
