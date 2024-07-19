@@ -50,6 +50,7 @@ buildGoModule rec {
   meta = with lib; {
     description = "Encore is the Backend Development Platform purpose-built to help you create event-driven and distributed systems.";
     homepage = "https://encore.dev";
+    license = licenses.mpl20;
     maintainers = with maintainers; [luisnquin];
     platforms = platforms.linux;
     mainProgram = "encore";
