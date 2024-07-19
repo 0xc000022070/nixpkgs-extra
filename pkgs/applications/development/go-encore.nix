@@ -8,7 +8,7 @@
 stdenv.mkDerivation (
   finalAttrs: {
     pname = "go-encore";
-    version = "1.22";
+    version = "1.22.0";
 
     src = fetchFromGitHub {
       owner = "encoredev";
@@ -23,7 +23,7 @@ stdenv.mkDerivation (
       goSrc = fetchFromGitHub {
         owner = "golang";
         repo = "go";
-        rev = "release-branch.go${finalAttrs.version}";
+        rev = "release-branch.go${lib.versions.majorMinor finalAttrs.version}";
         hash = "sha256-amASGhvBcW90dylwFRC2Uj4kOAOKCgWmFKhLnA9dOgg=";
       };
     in ''
