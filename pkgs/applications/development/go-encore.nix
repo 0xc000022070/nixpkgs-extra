@@ -27,6 +27,8 @@ stdenv.mkDerivation (
         hash = "sha256-amASGhvBcW90dylwFRC2Uj4kOAOKCgWmFKhLnA9dOgg=";
       };
     in ''
+      runHook prePatch
+
       # delete submodule and replace with the go source
       rm -rf go
       cp -r ${goSrc} go
@@ -41,6 +43,8 @@ stdenv.mkDerivation (
       cp -p -P -v -R ../overlay/* ./
 
       popd
+
+      runHook postPatch
     '';
 
     installPhase = let
@@ -64,6 +68,8 @@ stdenv.mkDerivation (
         .${platform.parsed.cpu.name}
         or (throw "Unsupported system: ${platform.parsed.cpu.name}");
     in ''
+      runHook preInstall
+
       mkdir -p $TMPDIR/.gobuild-cache
       GOCACHE=$TMPDIR/.gobuild-cache go run . \
         --goos "${stdenv.targetPlatform.parsed.kernel.name}" \
@@ -73,6 +79,8 @@ stdenv.mkDerivation (
 
       cp -r dist/${stdenv.targetPlatform.parsed.kernel.name}_${goarch stdenv.targetPlatform}/encore-go/* $out/share/go
       ln -s $out/share/go/bin/go $out/bin/go-encore
+
+      runHook postInstall
     '';
 
     meta = with lib; {
