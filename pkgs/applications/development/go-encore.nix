@@ -72,8 +72,7 @@ stdenv.mkDerivation (
       mkdir -p $out/{bin,share/go}
 
       cp -r dist/${stdenv.targetPlatform.parsed.kernel.name}_${goarch stdenv.targetPlatform}/encore-go/* $out/share/go
-      ln -s $out/share/go/bin/go $out/bin
-      mv $out/bin/go $out/bin/go-encore
+      ln -s $out/share/go/bin/go $out/bin/go-encore
     '';
 
     meta = with lib; {
