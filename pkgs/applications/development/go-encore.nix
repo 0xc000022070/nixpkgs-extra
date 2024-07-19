@@ -64,8 +64,8 @@ stdenv.mkDerivation (
         .${platform.parsed.cpu.name}
         or (throw "Unsupported system: ${platform.parsed.cpu.name}");
     in ''
-      mkdir -p /tmp/.gobuild-cache
-      GOCACHE=/tmp/.gobuild-cache go run . \
+      mkdir -p $TMPDIR/.gobuild-cache
+      GOCACHE=$TMPDIR/.gobuild-cache go run . \
         --goos "${stdenv.targetPlatform.parsed.kernel.name}" \
         --goarch "${goarch stdenv.targetPlatform}"
 
