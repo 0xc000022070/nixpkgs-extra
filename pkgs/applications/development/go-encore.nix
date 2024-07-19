@@ -5,81 +5,83 @@
   go,
   ...
 }:
-stdenv.mkDerivation rec {
-  pname = "go-encore";
-  version = "1.22";
+stdenv.mkDerivation (
+  finalAttrs: {
+    pname = "go-encore";
+    version = "1.22";
 
-  src = fetchFromGitHub {
-    owner = "encoredev";
-    repo = "go";
-    rev = "encore-go${version}";
-    sha256 = "sha256-SSa3CoUS6JMfs6T1PMb3NK8UeJnpLlTIn46/3oCTnL8=";
-  };
-
-  buildInputs = [go];
-
-  patchPhase = let
-    goSrc = fetchFromGitHub {
-      owner = "golang";
+    src = fetchFromGitHub {
+      owner = "encoredev";
       repo = "go";
-      rev = "release-branch.go${version}";
-      hash = "sha256-amASGhvBcW90dylwFRC2Uj4kOAOKCgWmFKhLnA9dOgg=";
+      rev = "encore-go${finalAttrs.version}";
+      hash = "sha256-SSa3CoUS6JMfs6T1PMb3NK8UeJnpLlTIn46/3oCTnL8=";
     };
-  in ''
-    # delete submodule and replace with the go source
-    rm -rf go
-    cp -r ${goSrc} go
-    chmod -R u+rw go
 
-    cd go
+    buildInputs = [go];
 
-    for patch in ../patches/*.diff; do
-      patch --verbose -p1 --ignore-whitespace < "$patch"
-    done
+    patchPhase = let
+      goSrc = fetchFromGitHub {
+        owner = "golang";
+        repo = "go";
+        rev = "release-branch.go${finalAttrs.version}";
+        hash = "sha256-amASGhvBcW90dylwFRC2Uj4kOAOKCgWmFKhLnA9dOgg=";
+      };
+    in ''
+      # delete submodule and replace with the go source
+      rm -rf go
+      cp -r ${goSrc} go
+      chmod -R u+rw go
 
-    cp -p -P -v -R ../overlay/* ./
+      pushd go
 
-    cd ..
-  '';
+      for patch in ../patches/*.diff; do
+        patch --verbose -p1 --ignore-whitespace < "$patch"
+      done
 
-  installPhase = let
-    goarch = platform:
-      {
-        "aarch64" = "arm64";
-        "arm" = "arm";
-        "armv5tel" = "arm";
-        "armv6l" = "arm";
-        "armv7l" = "arm";
-        "i686" = "386";
-        "mips" = "mips";
-        "mips64el" = "mips64le";
-        "mipsel" = "mipsle";
-        "powerpc64" = "ppc64";
-        "powerpc64le" = "ppc64le";
-        "riscv64" = "riscv64";
-        "s390x" = "s390x";
-        "x86_64" = "amd64";
-      }
-      .${platform.parsed.cpu.name}
-      or (throw "Unsupported system: ${platform.parsed.cpu.name}");
-  in ''
-    mkdir -p /tmp/.gobuild-cache
-    GOCACHE=/tmp/.gobuild-cache go run . \
-      --goos "${stdenv.targetPlatform.parsed.kernel.name}" \
-      --goarch "${goarch stdenv.targetPlatform}"
+      cp -p -P -v -R ../overlay/* ./
 
-    mkdir -p $out/{bin,share/go}
+      popd
+    '';
 
-    cp -r dist/${stdenv.targetPlatform.parsed.kernel.name}_${goarch stdenv.targetPlatform}/encore-go/* $out/share/go
-    ln -s $out/share/go/bin/go $out/bin
-    mv $out/bin/go $out/bin/go-encore
-  '';
+    installPhase = let
+      goarch = platform:
+        {
+          "aarch64" = "arm64";
+          "arm" = "arm";
+          "armv5tel" = "arm";
+          "armv6l" = "arm";
+          "armv7l" = "arm";
+          "i686" = "386";
+          "mips" = "mips";
+          "mips64el" = "mips64le";
+          "mipsel" = "mipsle";
+          "powerpc64" = "ppc64";
+          "powerpc64le" = "ppc64le";
+          "riscv64" = "riscv64";
+          "s390x" = "s390x";
+          "x86_64" = "amd64";
+        }
+        .${platform.parsed.cpu.name}
+        or (throw "Unsupported system: ${platform.parsed.cpu.name}");
+    in ''
+      mkdir -p /tmp/.gobuild-cache
+      GOCACHE=/tmp/.gobuild-cache go run . \
+        --goos "${stdenv.targetPlatform.parsed.kernel.name}" \
+        --goarch "${goarch stdenv.targetPlatform}"
 
-  meta = with lib; {
-    description = "Encore's rolling fork of Go with added automatic tracing & instrumentation";
-    homepage = "https://encore.dev";
-    maintainers = with maintainers; [luisnquin];
-    platforms = platforms.linux;
-    mainProgram = "go-encore";
-  };
-}
+      mkdir -p $out/{bin,share/go}
+
+      cp -r dist/${stdenv.targetPlatform.parsed.kernel.name}_${goarch stdenv.targetPlatform}/encore-go/* $out/share/go
+      ln -s $out/share/go/bin/go $out/bin
+      mv $out/bin/go $out/bin/go-encore
+    '';
+
+    meta = with lib; {
+      description = "Rolling fork of Go with added automatic tracing and instrumentation for use with the encore package";
+      homepage = "https://encore.dev";
+      maintainers = with maintainers; [luisnquin];
+      platforms = platforms.linux ++ platforms.darwin;
+      mainProgram = "go-encore";
+    };
+  }
+)
