@@ -1,8 +1,9 @@
 {
   fetchFromGitHub,
   buildGoModule,
-  makeWrapper,
   callPackage,
+  makeWrapper,
+  lib,
   ...
 }:
 buildGoModule rec {
@@ -45,4 +46,12 @@ buildGoModule rec {
 
   vendorHash = "sha256-lM03+eBrny7uNKAq4xuQ3HSmX+aglaSEaRCetGgdyjQ=";
   proxyVendor = true;
+
+  meta = with lib; {
+    description = "Encore is the Backend Development Platform purpose-built to help you create event-driven and distributed systems.";
+    homepage = "https://encore.dev";
+    maintainers = with maintainers; [luisnquin];
+    platforms = platforms.linux;
+    mainProgram = "encore";
+  };
 }

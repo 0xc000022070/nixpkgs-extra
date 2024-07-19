@@ -76,8 +76,10 @@ stdenv.mkDerivation rec {
   '';
 
   meta = with lib; {
-    description = "Encore's Go runtime";
+    description = "Encore's rolling fork of Go with added automatic tracing & instrumentation";
     homepage = "https://encore.dev";
+    maintainers = with maintainers; [luisnquin];
     platforms = platforms.linux;
+    mainProgram = "go-encore";
   };
 }
