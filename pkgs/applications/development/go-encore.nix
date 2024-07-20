@@ -70,12 +70,11 @@ stdenv.mkDerivation (
     in ''
       runHook preInstall
 
-      mkdir -p $TMPDIR/.gobuild-cache
+      mkdir -p $TMPDIR/.gobuild-cache $out/{bin,share/go}
+
       GOCACHE=$TMPDIR/.gobuild-cache go run . \
         --goos "${stdenv.targetPlatform.parsed.kernel.name}" \
         --goarch "${goarch stdenv.targetPlatform}"
-
-      mkdir -p $out/{bin,share/go}
 
       cp -r dist/${stdenv.targetPlatform.parsed.kernel.name}_${goarch stdenv.targetPlatform}/encore-go/* $out/share/go
       ln -s $out/share/go/bin/go $out/bin/go-encore
