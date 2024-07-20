@@ -31,14 +31,12 @@ buildGoModule rec {
   CGO_ENABLED = 1;
 
   postInstall = let
-    tsparser = callPackage ./tsparser-encore.nix {};
     goEncore = callPackage ./go-encore.nix {};
   in ''
     mkdir -p $out/share/runtimes
     cp -r $src/runtimes/* $out/share/runtimes
 
     ln -s ${goEncore}/bin/* $out/bin
-    ln -s ${tsparser}/bin/* $out/bin
 
     wrapProgram $out/bin/encore \
       --set ENCORE_RUNTIMES_PATH $out/share/runtimes \
