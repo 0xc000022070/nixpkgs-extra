@@ -31,17 +31,23 @@ buildGoModule rec {
   CGO_ENABLED = 1;
 
   postInstall = let
-    goEncore = callPackage ./go-encore.nix {};
+    go = callPackage ./go-encore.nix {};
+    tsParser = callPackage ./tsparser-encore.nix {
+      inherit src version;
+
+      runtimesPath = "${placeholder "out"}/share/runtimes";
+    };
   in ''
     mkdir -p $out/share/runtimes
     cp -r $src/runtimes/* $out/share/runtimes
 
-    ln -s ${goEncore}/bin/* $out/bin
+    ln -s ${go}/bin/* $out/bin
+    ln -s ${tsParser}/bin/* $out/bin
 
     wrapProgram $out/bin/encore \
       --set ENCORE_RUNTIMES_PATH $out/share/runtimes \
-      --set ENCORE_GOROOT ${goEncore}/share/go \
-      --set GOROOT ${goEncore}/share/go
+      --set ENCORE_GOROOT ${go}/share/go \
+      --set GOROOT ${go}/share/go
   '';
 
   vendorHash = "sha256-lM03+eBrny7uNKAq4xuQ3HSmX+aglaSEaRCetGgdyjQ=";
