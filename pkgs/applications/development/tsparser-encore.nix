@@ -17,9 +17,8 @@
 in
   rustPlatform.buildRustPackage {
     pname = "tsparser-encore";
-    version = version;
 
-    inherit src;
+    inherit src version;
 
     nativeBuildInputs = [
       makeWrapper
