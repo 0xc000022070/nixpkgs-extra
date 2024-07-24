@@ -35,7 +35,7 @@ buildGoModule rec {
     tsParser = callPackage ./tsparser-encore.nix {
       inherit src version;
 
-      runtimesPath = "${placeholder "out"}/share/runtimes";
+      runtimesPath = "$src/runtimes";
     };
   in ''
     mkdir -p $out/share/runtimes

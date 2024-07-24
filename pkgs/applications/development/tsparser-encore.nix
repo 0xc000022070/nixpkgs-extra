@@ -42,6 +42,9 @@ in
       rm -rf tsparser/Cargo.lock
       cp ${cargoLockFile} Cargo.lock
 
+      mkdir -p $out/share/runtimes
+      cp -r ${runtimesPath}/js $out/share/runtimes
+
       # to avoid to compile "broken" members
       rm -rf runtimes
       substituteInPlace Cargo.toml \
@@ -62,7 +65,7 @@ in
 
     postInstall = ''
       wrapProgram $out/bin/tsparser-encore \
-        --set ENCORE_JS_RUNTIME_PATH ${runtimesPath}/js
+        --set ENCORE_JS_RUNTIME_PATH $out/share/runtimes/js
     '';
 
     cargoLock = {
