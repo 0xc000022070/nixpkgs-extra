@@ -42,8 +42,8 @@ in
       rm -rf tsparser/Cargo.lock
       cp ${cargoLockFile} Cargo.lock
 
-      mkdir -p $out/share/runtimes
-      cp -r ${runtimesPath}/js $out/share/runtimes
+      mkdir -p $out/share/runtimes/js/dist
+      cp -r ${runtimesPath}/js $out/share/runtimes/js/dist
 
       # to avoid to compile "broken" members
       rm -rf runtimes

@@ -23,7 +23,6 @@ with pkgs.lib; let
     stu = ../applications/terminal/stu.nix;
     vimix-cursor-theme = ../applications/desktop/vimix-cursor-theme.nix;
     yaak = ../applications/development/yaak.nix;
-    passgen = ../applications/terminal/passgen.nix;
     logkeys = ../applications/terminal/logkeys.nix;
     systemctl-tui = ../applications/terminal/systemctl-tui.nix;
   };
