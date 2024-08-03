@@ -1,64 +1,69 @@
 {
-  fetchFromGitHub,
-  buildGoModule,
-  callPackage,
+  autoPatchelfHook,
   makeWrapper,
+  stdenv,
   lib,
-  ...
 }:
-buildGoModule rec {
-  pname = "encore";
-  version = "1.39.0";
+stdenv.mkDerivation (
+  finalAttrs: {
+    pname = "encore";
+    version = "1.39.3";
 
-  src = fetchFromGitHub {
-    name = "encore-source";
-    owner = "encoredev";
-    repo = "encore";
-    rev = "v${version}";
-    hash = "sha256-71vzo52vV4VilBnLZxIWDKIY08rfTavMZ57qgi4pip8=";
-  };
+    src = let
+      platform = stdenv.targetPlatform;
 
-  doCheck = true;
+      goarch =
+        {
+          "aarch64" = "arm64";
+          "x86_64" = "amd64";
+        }
+        .${platform.parsed.cpu.name}
+        or (throw "Unsupported system: ${platform.parsed.cpu.name}");
 
-  subPackages = [
-    "cli/cmd/encore"
-    "cli/cmd/git-remote-encore"
-    "cli/cmd/tsbundler-encore"
-  ];
+      goos = platform.parsed.kernel.name;
+    in
+      builtins.fetchurl {
+        url = "https://d2f391esomvqpi.cloudfront.net/encore-${finalAttrs.version}-${goos}_${goarch}.tar.gz";
+        sha256 = "05abmp45rym9g7n1l1935bpzm8a6vjnv0kpv9aj3kidssll18s3x";
+      };
 
-  nativeBuildInputs = [makeWrapper];
+    nativeBuildInputs = [makeWrapper autoPatchelfHook];
 
-  CGO_ENABLED = 1;
+    unpackPhase = ''
+      runHook preUnpack
 
-  postInstall = let
-    go = callPackage ./go-encore.nix {};
-    tsParser = callPackage ./tsparser-encore.nix {
-      inherit src version;
+      tar -xvzf $src
 
-      runtimesPath = "$src/runtimes";
+      runHook postUnpack
+    '';
+
+    installPhase = ''
+      runHook preInstall
+
+      mkdir -p $out/{bin,share/{runtimes,encore-go}}
+
+      cp -r bin/* $out/bin
+      cp -r encore-go/* $out/share/encore-go
+      cp -r runtimes/* $out/share/runtimes
+
+      wrapProgram $out/bin/encore \
+        --set ENCORE_RUNTIMES_PATH $out/share/runtimes \
+        --set ENCORE_GOROOT $out/share/encore-go \
+        --set GOROOT $out/share/encore-go
+
+      wrapProgram $out/bin/tsparser-encore \
+        --set ENCORE_JS_RUNTIME_PATH $out/share/runtimes/js
+
+      runHook postInstall
+    '';
+
+    meta = with lib; {
+      description = "Backend Development Platform to create event-driven and distributed systems";
+      homepage = "https://encore.dev";
+      license = licenses.mpl20;
+      maintainers = with maintainers; [luisnquin];
+      platforms = platforms.linux ++ platforms.darwin;
+      mainProgram = "encore";
     };
-  in ''
-    mkdir -p $out/share/runtimes
-    cp -r $src/runtimes/* $out/share/runtimes
-
-    ln -s ${go}/bin/* $out/bin
-    ln -s ${tsParser}/bin/* $out/bin
-
-    wrapProgram $out/bin/encore \
-      --set ENCORE_RUNTIMES_PATH $out/share/runtimes \
-      --set ENCORE_GOROOT ${go}/share/go \
-      --set GOROOT ${go}/share/go
-  '';
-
-  vendorHash = "sha256-lM03+eBrny7uNKAq4xuQ3HSmX+aglaSEaRCetGgdyjQ=";
-  proxyVendor = true;
-
-  meta = with lib; {
-    description = "Backend Development Platform to create event-driven and distributed systems";
-    homepage = "https://encore.dev";
-    license = licenses.mpl20;
-    maintainers = with maintainers; [luisnquin];
-    platforms = platforms.linux ++ platforms.darwin;
-    mainProgram = "encore";
-  };
-}
+  }
+)
