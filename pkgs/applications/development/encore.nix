@@ -40,11 +40,10 @@ stdenv.mkDerivation (
     installPhase = ''
       runHook preInstall
 
-      mkdir -p $out/{bin,share/{runtimes,encore-go}}
+      mkdir -p $out/{bin,share}
 
+      cp -r {encore-go,runtimes} $out/share
       cp -r bin/* $out/bin
-      cp -r encore-go/* $out/share/encore-go
-      cp -r runtimes/* $out/share/runtimes
 
       wrapProgram $out/bin/encore \
         --set ENCORE_RUNTIMES_PATH $out/share/runtimes \
