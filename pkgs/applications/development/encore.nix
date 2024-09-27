@@ -24,7 +24,7 @@ stdenv.mkDerivation (
     in
       builtins.fetchurl {
         url = "https://d2f391esomvqpi.cloudfront.net/encore-${finalAttrs.version}-${goos}_${goarch}.tar.gz";
-        sha256 = "18ihnli8ib6g6zlxa1dja2nnl2c1ada74qbjchrp6s8hj7m2ymv0";
+        sha256 = "1kmdp54hg27x0rqsrgb3hhv98fh5psnni1x546mm3ybbb4z2zmi9";
       };
 
     nativeBuildInputs = [makeWrapper autoPatchelfHook];
