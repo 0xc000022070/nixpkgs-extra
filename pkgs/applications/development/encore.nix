@@ -7,7 +7,7 @@
 stdenv.mkDerivation (
   finalAttrs: {
     pname = "encore";
-    version = "1.41.6";
+    version = "1.41.7";
 
     src = let
       platform = stdenv.targetPlatform;
