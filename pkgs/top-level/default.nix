@@ -11,6 +11,7 @@ with pkgs.lib; let
     go-blueprint = ../applications/terminal/go-blueprint.nix;
     goweight = ../applications/terminal/goweight.nix;
     havn = ../applications/terminal/havn.nix;
+    hyprdrop = ../applications/desktop/hyprdrop.nix;
     kmon = ../applications/terminal/kmon.nix;
     lazysql = ../applications/terminal/lazysql.nix;
     netscanner = ../applications/terminal/netscanner.nix;
