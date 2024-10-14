@@ -22,7 +22,7 @@
           inherit system;
         };
       in rec {
-        defaultPackage = packages.hyprdrop;
+        defaultPackage = packages.encore;
 
         packages = import ./pkgs/top-level {inherit pkgs;};
       }
