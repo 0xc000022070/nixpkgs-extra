@@ -7,7 +7,7 @@
 stdenv.mkDerivation (
   finalAttrs: {
     pname = "encore";
-    version = "1.41.12";
+    version = "1.41.14";
 
     src = let
       platform = stdenv.targetPlatform;
@@ -24,7 +24,7 @@ stdenv.mkDerivation (
     in
       builtins.fetchurl {
         url = "https://d2f391esomvqpi.cloudfront.net/encore-${finalAttrs.version}-${goos}_${goarch}.tar.gz";
-        sha256 = "0w3vlp1pb7ilswxq2biwf98h9cpyyrvgp2r567a9pgmpwkfcqdq4";
+        sha256 = "0gqmi3x4kz44ngzhrsyhn1hw5bfx3p0p2kdy7jxglwkj1ma4nry5";
       };
 
     nativeBuildInputs = [makeWrapper autoPatchelfHook];
