@@ -22,7 +22,7 @@
           inherit system;
         };
       in rec {
-        defaultPackage = packages.encore;
+        defaultPackage = packages.minecraft-pumpkin;
 
         packages = import ./pkgs/top-level {inherit pkgs;};
       }

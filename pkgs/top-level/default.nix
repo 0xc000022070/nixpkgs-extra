@@ -14,6 +14,7 @@ with pkgs.lib; let
     hyprdrop = ../applications/desktop/hyprdrop.nix;
     kmon = ../applications/terminal/kmon.nix;
     lazysql = ../applications/terminal/lazysql.nix;
+    minecraft-pumpkin = ../applications/minecraft-pumpkin.nix;
     netscanner = ../applications/terminal/netscanner.nix;
     mysqlweb = ../applications/terminal/mysqlweb.nix;
     no = ../applications/terminal/no.nix;
