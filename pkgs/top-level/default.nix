@@ -1,31 +1,31 @@
 {pkgs, ...}:
 with pkgs.lib; let
   packages = {
-    atac = ../applications/terminal/atac.nix;
-    coders-crux = ../applications/fonts/coders-crux.nix;
-    ecsview = ../applications/terminal/ecsview.nix;
-    daktilo = ../applications/terminal/daktilo.nix;
-    emoji-fzf = ../applications/terminal/emoji-fzf.nix;
-    encore = ../applications/development/encore.nix;
-    ght = ../applications/terminal/ght.nix;
-    go-blueprint = ../applications/terminal/go-blueprint.nix;
-    goweight = ../applications/terminal/goweight.nix;
-    havn = ../applications/terminal/havn.nix;
-    hyprdrop = ../applications/desktop/hyprdrop.nix;
-    kmon = ../applications/terminal/kmon.nix;
-    lazysql = ../applications/terminal/lazysql.nix;
-    minecraft-pumpkin = ../applications/minecraft-pumpkin.nix;
-    netscanner = ../applications/terminal/netscanner.nix;
-    mysqlweb = ../applications/terminal/mysqlweb.nix;
-    no = ../applications/terminal/no.nix;
-    npkill = ../applications/terminal/npkill.nix;
-    openapi-tui = ../applications/terminal/openapi-tui.nix;
-    s3-edit = ../applications/terminal/s3-edit.nix;
-    stu = ../applications/terminal/stu.nix;
-    vimix-cursor-theme = ../applications/desktop/vimix-cursor-theme.nix;
-    yaak = ../applications/development/yaak.nix;
-    logkeys = ../applications/terminal/logkeys.nix;
-    systemctl-tui = ../applications/terminal/systemctl-tui.nix;
+    atac = ../applications/atac.nix;
+    coders-crux = ../applications/coders-crux.nix;
+    daktilo = ../applications/daktilo.nix;
+    ecsview = ../applications/ecsview.nix;
+    emoji-fzf = ../applications/emoji-fzf.nix;
+    encore = ../applications/encore.nix;
+    ght = ../applications/ght.nix;
+    go-blueprint = ../applications/go-blueprint.nix;
+    goweight = ../applications/goweight.nix;
+    havn = ../applications/havn.nix;
+    hyprdrop = ../applications/hyprdrop;
+    kmon = ../applications/kmon.nix;
+    lazysql = ../applications/lazysql.nix;
+    logkeys = ../applications/logkeys.nix;
+    minecraft-pumpkin = ../applications/minecraft-pumpkin;
+    mysqlweb = ../applications/mysqlweb.nix;
+    netscanner = ../applications/netscanner.nix;
+    no = ../applications/no.nix;
+    npkill = ../applications/npkill.nix;
+    openapi-tui = ../applications/openapi-tui.nix;
+    s3-edit = ../applications/s3-edit.nix;
+    stu = ../applications/stu.nix;
+    systemctl-tui = ../applications/systemctl-tui.nix;
+    vimix-cursor-theme = ../applications/vimix-cursor-theme.nix;
+    yaak = ../applications/yaak.nix;
   };
 in
   attrsets.mapAttrs (_name: p: pkgs.callPackage p {}) packages

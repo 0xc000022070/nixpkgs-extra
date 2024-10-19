@@ -3,7 +3,7 @@
   rustPlatform,
   pkg-config,
 }:let 
-cargoLockFile =./minecraft-pumpkin-Cargo.toml;
+cargoLockFile =./Cargo.toml;
 in
 rustPlatform.buildRustPackage {
   pname = "minecraft-pumpkin";

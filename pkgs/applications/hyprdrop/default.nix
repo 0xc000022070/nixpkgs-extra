@@ -19,7 +19,7 @@ rustPlatform.buildRustPackage {
   ];
 
   cargoLock = {
-    lockFile = ./hyprdrop.Cargo.toml;
+    lockFile = ./Cargo.toml;
     outputHashes = {
       "hyprland-0.4.0-alpha.3" = "sha256-6tqGJ7iC0EPTJP174cSwB9CEvJ0KQ6Um6HMHcIuT/Js=";
     };
