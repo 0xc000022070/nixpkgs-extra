@@ -25,6 +25,6 @@ in
       description = "Unlike gnu yes";
       homepage = "https://github.com/${owner}/${pname}";
       license = licenses.gpl3Only;
-      maintainers = with maintainers; ["${owner}"];
+      maintainers = ["luisnquin"];
     };
   }
