@@ -24,4 +24,6 @@ rustPlatform.buildRustPackage {
       "hyprland-0.4.0-beta.2" = "sha256-Vvpb5BzzTjol6UmJjkqymLlARr4gRJaS5k4aONNlcsk=";
     };
   };
+
+  meta.mainProgram = "hyprdrop";
 }
