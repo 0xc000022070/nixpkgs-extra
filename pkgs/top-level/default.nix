@@ -1,5 +1,5 @@
-{pkgs, ...}:
-with pkgs.lib; let
+{pkgs, lib ? pkgs.lib, ...}:
+with lib; let
   packages = {
     coders-crux = ../applications/coders-crux.nix;
     daktilo = ../applications/daktilo.nix;

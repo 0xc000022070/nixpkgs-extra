@@ -2,29 +2,32 @@
   description = "A very basic flake";
 
   inputs = {
-    flake-utils.url = "github:numtide/flake-utils";
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    systems.url = "github:nix-systems/default";
   };
 
   outputs = {
     self,
     nixpkgs,
-    flake-utils,
-  }:
-    flake-utils.lib.eachDefaultSystem (
-      system: let
-        pkgs = import nixpkgs {
-          config = {
-            allowBroken = false;
-            allowUnfree = true;
-          };
+    systems,
+  }: let
+    inherit (nixpkgs) lib;
+    eachSystem = lib.genAttrs (import systems);
+  in {
+    overlays.default = final: prev: (import ./pkgs/top-level {pkgs = final; inherit lib;});
 
-          inherit system;
+    packages = eachSystem (system: let
+      pkgs = import nixpkgs {
+        config = {
+          allowBroken = false;
+          allowUnfree = true;
         };
-      in rec {
-        defaultPackage = packages.hyprdrop;
 
-        packages = import ./pkgs/top-level {inherit pkgs;};
-      }
-    );
+        inherit system;
+      };
+    in
+      import ./pkgs/top-level {inherit pkgs;});
+
+    defaultPackage = eachSystem (system: self.packages.${system}.hyprdrop);
+  };
 }
