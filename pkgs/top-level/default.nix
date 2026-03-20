@@ -17,7 +17,6 @@ with lib; let
     no = ../applications/no.nix;
     npkill = ../applications/npkill.nix;
     s3-edit = ../applications/s3-edit.nix;
-    stu = ../applications/stu.nix;
     systemctl-tui = ../applications/systemctl-tui.nix;
     vimix-cursor-theme = ../applications/vimix-cursor-theme.nix;
   };
