@@ -4,10 +4,15 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     systems.url = "github:nix-systems/default";
+    nixgrep = {
+      url = "github:0xc000022070/nixgrep";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     self,
+    nixgrep,
     nixpkgs,
     systems,
   }: let
@@ -16,7 +21,7 @@
   in {
     overlays.default = final: prev: (import ./pkgs/top-level {
       pkgs = final;
-      inherit lib;
+      inherit nixgrep lib;
     });
 
     packages = eachSystem (system: let
@@ -29,6 +34,6 @@
         inherit system;
       };
     in
-      import ./pkgs/top-level {inherit pkgs;});
+      import ./pkgs/top-level {inherit pkgs nixgrep;});
   };
 }

@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "nixgrep": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1729458353,
+        "narHash": "sha256-4RDoygqGPcAZWnia2B86LOlSrWX/YJb8/c+WWAtJ+d4=",
+        "owner": "0xc000022070",
+        "repo": "nixgrep",
+        "rev": "e24a94d036c440c927a8e946ce3f121f513e8dbb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "0xc000022070",
+        "repo": "nixgrep",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1744463964,
@@ -17,6 +37,7 @@
     },
     "root": {
       "inputs": {
+        "nixgrep": "nixgrep",
         "nixpkgs": "nixpkgs",
         "systems": "systems"
       }

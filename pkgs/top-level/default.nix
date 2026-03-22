@@ -1,4 +1,9 @@
-{pkgs, lib ? pkgs.lib, ...}:
+{
+  nixgrep,
+  pkgs,
+  lib ? pkgs.lib,
+  ...
+}:
 with lib; let
   packages = {
     coders-crux = ../applications/coders-crux.nix;
@@ -15,3 +20,6 @@ with lib; let
   };
 in
   attrsets.mapAttrs (_name: p: pkgs.callPackage p {}) packages
+  // {
+    inherit (nixgrep.packages.${pkgs.stdenv.hostPlatform.system}) nixgrep;
+  }
