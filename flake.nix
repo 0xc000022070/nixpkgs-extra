@@ -14,7 +14,10 @@
     inherit (nixpkgs) lib;
     eachSystem = lib.genAttrs (import systems);
   in {
-    overlays.default = final: prev: (import ./pkgs/top-level {pkgs = final; inherit lib;});
+    overlays.default = final: prev: (import ./pkgs/top-level {
+      pkgs = final;
+      inherit lib;
+    });
 
     packages = eachSystem (system: let
       pkgs = import nixpkgs {
@@ -27,7 +30,5 @@
       };
     in
       import ./pkgs/top-level {inherit pkgs;});
-
-    defaultPackage = eachSystem (system: self.packages.${system}.hyprdrop);
   };
 }
