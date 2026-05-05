@@ -1,5 +1,120 @@
 {
   "nodes": {
+    "adb-mcp": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "systems": [
+          "systems"
+        ]
+      },
+      "locked": {
+        "lastModified": 1777950810,
+        "narHash": "sha256-BTfTOPzg820q8V7S2RCXid7GZQ/gsM4BPEYjhOFHc18=",
+        "owner": "cuentacero",
+        "repo": "adb-mcp",
+        "rev": "f458d7d88cedf5c79995adbf90df610deba70f6d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cuentacero",
+        "repo": "adb-mcp",
+        "type": "github"
+      }
+    },
+    "grub-themes": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "systems": [
+          "systems"
+        ]
+      },
+      "locked": {
+        "lastModified": 1774002033,
+        "narHash": "sha256-NjOmeCZmne76oDS+eV0qqXWqZQ6SEtUYxXlzE9Ce2/0=",
+        "owner": "luisnquin",
+        "repo": "grub-themes",
+        "rev": "b1e60fd6c3e8bc8381daeb279b6e02c7701d52da",
+        "type": "github"
+      },
+      "original": {
+        "owner": "luisnquin",
+        "repo": "grub-themes",
+        "type": "github"
+      }
+    },
+    "hyprstfu": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "systems": [
+          "systems"
+        ]
+      },
+      "locked": {
+        "lastModified": 1774001993,
+        "narHash": "sha256-Gzy9UjyBXtyNmPaBYqHruNAf9MYAKlIyDPafeY491c8=",
+        "owner": "luisnquin",
+        "repo": "hyprstfu",
+        "rev": "1b1119236b189a4a6bf9c490cc29c584528947cf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "luisnquin",
+        "repo": "hyprstfu",
+        "type": "github"
+      }
+    },
+    "nao": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "systems": [
+          "systems"
+        ]
+      },
+      "locked": {
+        "lastModified": 1773996955,
+        "narHash": "sha256-t4FVYsD6XEoBrYe6J+vcKMztEbLjXXMvHEk3B5M7EHk=",
+        "owner": "luisnquin",
+        "repo": "nao",
+        "rev": "a7e42cd82c5077500fe87700262e7f5325df9b76",
+        "type": "github"
+      },
+      "original": {
+        "owner": "luisnquin",
+        "repo": "nao",
+        "type": "github"
+      }
+    },
+    "nix-scripts": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "systems": [
+          "systems"
+        ]
+      },
+      "locked": {
+        "lastModified": 1777146071,
+        "narHash": "sha256-bZsu8ykD56VHemOrNgRSGAZn7tP9uW1Z0sfHQTby4q0=",
+        "owner": "0xc000022070",
+        "repo": "nix-scripts",
+        "rev": "8fbb4987c546dad6c25c23a6067935960437fb7d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "0xc000022070",
+        "repo": "nix-scripts",
+        "type": "github"
+      }
+    },
     "nixgrep": {
       "inputs": {
         "nixpkgs": [
@@ -35,11 +150,61 @@
         "type": "indirect"
       }
     },
+    "passgen": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "systems": [
+          "systems"
+        ]
+      },
+      "locked": {
+        "lastModified": 1773998531,
+        "narHash": "sha256-ix06qDh9GB4EvlwJR/VHHNlx185Z3QEbBHbJBQr97JQ=",
+        "owner": "0xc000022070",
+        "repo": "passgen",
+        "rev": "89442d26422264e32d27b003977316e6e80ee017",
+        "type": "github"
+      },
+      "original": {
+        "owner": "0xc000022070",
+        "repo": "passgen",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
+        "adb-mcp": "adb-mcp",
+        "grub-themes": "grub-themes",
+        "hyprstfu": "hyprstfu",
+        "nao": "nao",
+        "nix-scripts": "nix-scripts",
         "nixgrep": "nixgrep",
         "nixpkgs": "nixpkgs",
+        "passgen": "passgen",
+        "senv": "senv",
         "systems": "systems"
+      }
+    },
+    "senv": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1773996876,
+        "narHash": "sha256-4Jgf0pcXt7vAcPNPItH21uyWHPGrtYwEFbAl5cMUtpg=",
+        "owner": "luisnquin",
+        "repo": "senv",
+        "rev": "e6bcdd7114a3e183ae7a8028cfa2e79ca70d6a5e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "luisnquin",
+        "repo": "senv",
+        "type": "github"
       }
     },
     "systems": {
