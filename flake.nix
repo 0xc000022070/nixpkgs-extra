@@ -1,5 +1,5 @@
 {
-  description = "A very basic flake";
+  description = "Langley's antagonistic";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
