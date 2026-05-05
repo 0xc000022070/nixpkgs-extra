@@ -10,6 +10,7 @@ with lib; let
     ecsview = ../applications/ecsview.nix;
     emoji-fzf = ../applications/emoji-fzf.nix;
     ght = ../applications/ght.nix;
+    go-librespot = ../applications/go-librespot.nix;
     goweight = ../applications/goweight.nix;
     hyprdrop = ../applications/hyprdrop;
     mysqlweb = ../applications/mysqlweb.nix;
