@@ -69,29 +69,6 @@
         "type": "github"
       }
     },
-    "nao": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "systems": [
-          "systems"
-        ]
-      },
-      "locked": {
-        "lastModified": 1773996955,
-        "narHash": "sha256-t4FVYsD6XEoBrYe6J+vcKMztEbLjXXMvHEk3B5M7EHk=",
-        "owner": "luisnquin",
-        "repo": "nao",
-        "rev": "a7e42cd82c5077500fe87700262e7f5325df9b76",
-        "type": "github"
-      },
-      "original": {
-        "owner": "luisnquin",
-        "repo": "nao",
-        "type": "github"
-      }
-    },
     "nix-scripts": {
       "inputs": {
         "nixpkgs": [
@@ -178,7 +155,6 @@
         "adb-mcp": "adb-mcp",
         "grub-themes": "grub-themes",
         "hyprstfu": "hyprstfu",
-        "nao": "nao",
         "nix-scripts": "nix-scripts",
         "nixgrep": "nixgrep",
         "nixpkgs": "nixpkgs",
