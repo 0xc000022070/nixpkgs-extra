@@ -10,11 +10,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1777950810,
-        "narHash": "sha256-BTfTOPzg820q8V7S2RCXid7GZQ/gsM4BPEYjhOFHc18=",
+        "lastModified": 1778015020,
+        "narHash": "sha256-/xdA417jJeEQ67JY5+oE4CnxwmkBURaEev/9yJhz//U=",
         "owner": "cuentacero",
         "repo": "adb-mcp",
-        "rev": "f458d7d88cedf5c79995adbf90df610deba70f6d",
+        "rev": "c1dd52d6ef17e9d9f13b2a831559064fa9a56aba",
         "type": "github"
       },
       "original": {
