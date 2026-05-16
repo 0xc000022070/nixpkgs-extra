@@ -137,11 +137,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1773998531,
-        "narHash": "sha256-ix06qDh9GB4EvlwJR/VHHNlx185Z3QEbBHbJBQr97JQ=",
+        "lastModified": 1778909340,
+        "narHash": "sha256-WzE947hzFqTU2kRA1GE/GPY7ZF8Wbv4UJW3AnYNM6mU=",
         "owner": "0xc000022070",
         "repo": "passgen",
-        "rev": "89442d26422264e32d27b003977316e6e80ee017",
+        "rev": "c89b2e6b51014414e4ed8ce7e0170235d923b8b5",
         "type": "github"
       },
       "original": {
