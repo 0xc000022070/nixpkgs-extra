@@ -33,11 +33,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1774002033,
-        "narHash": "sha256-NjOmeCZmne76oDS+eV0qqXWqZQ6SEtUYxXlzE9Ce2/0=",
+        "lastModified": 1783879196,
+        "narHash": "sha256-J+7hcAeSKpe3jogSIqSBcFUecamQuFmOCEk53ehA+dE=",
         "owner": "luisnquin",
         "repo": "grub-themes",
-        "rev": "b1e60fd6c3e8bc8381daeb279b6e02c7701d52da",
+        "rev": "61426f46b8a916a82455a806156efd76c86695b2",
         "type": "github"
       },
       "original": {
