@@ -10,8 +10,8 @@ rustPlatform.buildRustPackage {
   src = fetchFromGitHub {
     owner = "luisnquin";
     repo = "hyprdrop";
-    rev = "5851dfb5086b52aedc470c62b598661c4d0d279b";
-    hash = "sha256-H162spKHLMx6XG7fx+EJxO4sdglYHsrbfIXdz/jalAw=";
+    rev = "6c4cff7f0eceeeca1ca3fdb27cd6c2ad6e1e33bd";
+    hash = "sha256-VRiaWmcUklBD3r4sfUAyDDsXsi4kWBY84YuSStiDLvo=";
   };
 
   nativeBuildInputs = [
